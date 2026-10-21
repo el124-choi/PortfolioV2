@@ -10,9 +10,16 @@
 {% endblock %}
 
 {% block content %}
+    <h2>{{entry['title']}}</h2>
+    <p>Created: {{entry['created']}}</p>
 
-    <p>hey hi hello</p>
+    <img src="{{entry['img_path']}}">
 
+    {% if entry['github'] != None %}
+        <a href="{{entry['github']}}">Link</a>
+    {% endif %}
+    <p>{{entry['content']}}</p>
 {% endblock %}
+
 
 </html>

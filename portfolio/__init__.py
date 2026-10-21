@@ -26,9 +26,7 @@ def create_app(test_config=None):
     def blog():
         db = get_db()
         entries = db.execute(
-            'SELECT posted, content'
-            ' FROM entries'
-            ' WHERE archived = FALSE'
+            'SELECT posted, content FROM entries WHERE archived = FALSE'
         ).fetchall()
         return render_template('blog.html', entries=entries)
 
@@ -38,12 +36,12 @@ def create_app(test_config=None):
         complete = db.execute(
             'SELECT id, title'
             ' FROM projects'
-            ' WHERE completed = TRUE'
+            ' WHERE completed = TRUE AND archived = FALSE'
         ).fetchall()
         incomplete = db.execute(
             'SELECT id, title'
             ' FROM projects'
-            ' WHERE completed = FALSE'
+            ' WHERE completed = FALSE and archived = FALSE'
         ).fetchall() 
         return render_template('projects/index.html', c_projects=complete, i_projects=incomplete)
 
