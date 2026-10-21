@@ -12,8 +12,10 @@
 {% block content %}
     <h2>{{entry['title']}}</h2>
     <p>Created: {{entry['created']}}</p>
-
-    <img src="{{entry['img_path']}}">
+    <p>Technologies: {{entry['technologies']}}</p>
+    {% if entry['img_path'] != None %}
+        <img src="{{ url_for('static', filename='images/' ~ entry['img_path'])}}">
+    {% endif %}
 
     {% if entry['github'] != None %}
         <a href="{{entry['github']}}">Link</a>

@@ -8,7 +8,7 @@ bp = Blueprint('projects', __name__, url_prefix='/projects')
 @bp.route('/<int:index>', methods=['GET'])
 def project(index):
     entry = get_db().execute(
-        'SELECT title, created, content FROM projects WHERE id = ?',
+        'SELECT title, created, img_path, technologies, github, content FROM projects WHERE id = ?',
         (index,)
     ).fetchone()
 
