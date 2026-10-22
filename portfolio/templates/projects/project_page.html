@@ -27,7 +27,7 @@
     </div>
     
     {% if entry['img_path'] != None %}
-        <img src="{{ url_for('static', filename='images/' ~ entry['img_path'])}}">
+        <img src="{{ '/images/' ~ entry['img_path'] }}">
     {% endif %}
     <ul>
         {% for x in contents %}

@@ -13,6 +13,11 @@ def create_app(test_config=None):
 
     if test_config is None:
         app.config.from_pyfile('config.py', silent=True)
+        secret_key = os.environ.get('SECRET_KEY')
+        if secret_key is None and os.environ.get('VERCEL'):
+            raise RuntimeError('SECRET_KEY must be set in the Vercel environment.')
+        if secret_key is not None:
+            app.config['SECRET_KEY'] = secret_key
     else:
         app.config.from_mapping(test_config)
 
