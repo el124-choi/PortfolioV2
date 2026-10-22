@@ -37,6 +37,7 @@ def create_app(test_config=None):
             'SELECT id, title'
             ' FROM projects'
             ' WHERE completed = TRUE AND archived = FALSE'
+            ' ORDER BY id DESC'
         ).fetchall()
         incomplete = db.execute(
             'SELECT id, title'

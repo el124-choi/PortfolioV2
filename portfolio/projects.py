@@ -8,11 +8,12 @@ bp = Blueprint('projects', __name__, url_prefix='/projects')
 @bp.route('/<int:index>', methods=['GET'])
 def project(index):
     entry = get_db().execute(
-        'SELECT title, created, img_path, technologies, github, content FROM projects WHERE id = ?',
+        'SELECT title, created, img_path, technologies, github, award, content FROM projects WHERE id = ?',
         (index,)
     ).fetchone()
 
     if entry is None:
         abort(404)
 
-    return render_template('projects/project_page.html', entry=entry)
+    contents = entry['content'].split(". ")
+    return render_template('projects/project_page.html', entry=entry, contents=contents)

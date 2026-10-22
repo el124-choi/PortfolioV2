@@ -5,24 +5,23 @@
 
 {% block header %}
 
-    <h1>Project Home page</h1>
+    <h1>Projects</h1>
 
 {% endblock %}
 
 {% block content %}
-
     <p>Here are my completed projects:</p>
-    <ul>
-    {% for c in c_projects %}
-        <li><a href="{{ url_for('projects.project', index=c['id'])}}">{{c['title']}}</a></li>
-    {% endfor %}
-    </ul>
+    <nav class="links">
+        {% for c in c_projects %}
+            <a href="{{ url_for('projects.project', index=c['id'])}}">{{c['title']}}</a>
+        {% endfor %}
+    </nav>
     <p>Here are the projects I am currently working on:</p>
-    <ul>
+    <nav class="links">
     {% for i in i_projects %}
-        <li><a href="{{ url_for('projects.project', index=i['id'])}}">{{i['title']}}</a></li>
+        <a href="{{ url_for('projects.project', index=i['id'])}}">{{i['title']}}</a>
     {% endfor %}
-    </ul>
+    </nav>
 
 {% endblock %}
 

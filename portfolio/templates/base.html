@@ -1,18 +1,31 @@
 <!doctype html>
 
 <html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{% block title %} {% endblock %} </title>
 <link rel="stylesheet" href="{{ url_for('static', filename='styles.css')}}">
-<h2> Elizabeth Choi's Portfolio</h2>
-<ul>
-    <a href="/">Home</a>
-    <a href="/projects">Projects</a>
-    <a href="/blog">Blog</a>
-</ul>
-<section class="content">
-    <header>
-        {% block header %}{% endblock %}
-    </header>
-    {% block content %}{% endblock %}
-</section>
+<main class="site-container">
+
+    <div class="content">
+        <p class="site-title">Elizabeth Choi</p>
+        <div class="links">
+            <span class="nav-bar">
+                <a href="/">Home</a>
+                <a href="/projects">Projects</a>
+                <a href="/blog">Blog</a>
+            </span>
+            <span class="contact-links">
+                <a href="https://www.linkedin.com/in/elizabeth-choi-0195a4318">Linkedin</a>
+                <a href="https://github.com/el124-choi">Github</a>
+                <a href="https://www.kaggle.com/el124choi">Kaggle</a>
+            </span>
+        </div>
+
+        <div class="page">
+            {% block header %}{% endblock %}
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+</main>
+
 </html>

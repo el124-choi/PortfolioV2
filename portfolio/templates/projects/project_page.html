@@ -5,23 +5,31 @@
 
 {% block header %}
 
-    <h1>Project page</h1>
+    <h1>{{entry['title']}}</h1>
 
 {% endblock %}
 
 {% block content %}
-    <h2>{{entry['title']}}</h2>
-    <p>Created: {{entry['created']}}</p>
-    <p>Technologies: {{entry['technologies']}}</p>
+    
+    {% if entry['award'] != None %}
+        <p>Created: {{entry['created']}}</p>
+    {% endif %}
+    {% if entry['award'] != None %}
+        <p>Technologies: {{entry['technologies']}}</p>
+    {% endif %}
+    {% if entry['award'] != None %}
+        <p>Awarded {{entry['award']}}</p>
+    {% endif %}
     {% if entry['img_path'] != None %}
         <img src="{{ url_for('static', filename='images/' ~ entry['img_path'])}}">
     {% endif %}
-
     {% if entry['github'] != None %}
-        <a href="{{entry['github']}}">Link</a>
+        <a href="{{entry['github']}}">Github Link</a>
     {% endif %}
-    <p>{{entry['content']}}</p>
+    <ul>
+        {% for x in contents %}
+            <li>{{ x }}</li>
+        {% endfor %}
+    </ul>
 {% endblock %}
-
-
 </html>
