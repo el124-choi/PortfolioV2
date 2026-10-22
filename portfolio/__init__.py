@@ -22,6 +22,10 @@ def create_app(test_config=None):
     def index():
         return render_template("index.html")
 
+    @app.route('/profiles')
+    def profiles():
+        return render_template('profiles.html')
+
     @app.route('/blog')
     def blog():
         db = get_db()

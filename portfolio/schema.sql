@@ -90,9 +90,9 @@ VALUES
     0
 ), 
 (
-    "Portfolio (This site!)", 
+    "Portfolio", 
     "https://github.com/el124-choi/ec-portfolio", 
-    "All of the projects and blog entries are stored on a database so that I could get some SQL practice. I am currently working on the blog section and styling of the website",
+    "All of the projects and blog entries are stored on a database so that I could get some SQL practice. I am currently working on a weekly blog section for the website.",
     0, 
     0
 );

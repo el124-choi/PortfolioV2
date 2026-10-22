@@ -10,25 +10,28 @@
 {% endblock %}
 
 {% block content %}
-    
-    {% if entry['award'] != None %}
-        <p>Created: {{entry['created']}}</p>
-    {% endif %}
-    {% if entry['award'] != None %}
-        <p>Technologies: {{entry['technologies']}}</p>
-    {% endif %}
-    {% if entry['award'] != None %}
-        <p>Awarded {{entry['award']}}</p>
-    {% endif %}
-    {% if entry['img_path'] != None %}
-        <img src="{{ url_for('static', filename='images/' ~ entry['img_path'])}}">
-    {% endif %}
+
     {% if entry['github'] != None %}
         <a href="{{entry['github']}}">Github Link</a>
     {% endif %}
+    <div class="stats">
+        {% if entry['created'] != None %}
+            <p>Created: {{entry['created']}}</p>
+            {% endif %}
+            {% if entry['technologies'] != None %}
+                <p>Technologies: {{entry['technologies']}}</p>
+            {% endif %}
+            {% if entry['award'] != None %}
+                <p>★ Awarded {{entry['award']}} ★</p>
+        {% endif %}
+    </div>
+    
+    {% if entry['img_path'] != None %}
+        <img src="{{ url_for('static', filename='images/' ~ entry['img_path'])}}">
+    {% endif %}
     <ul>
         {% for x in contents %}
-            <li>{{ x }}</li>
+            <li>{{ x }}.</li>
         {% endfor %}
     </ul>
 {% endblock %}
