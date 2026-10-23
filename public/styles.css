@@ -197,35 +197,3 @@ a.is-active {
     background-size: 220% 220%, 240% 240%, 260% 260%;
     animation: drift 14s ease-in-out infinite;
 }
-/*
-#74E4FF 
-#0C71C6
-#86E750
-*/
-
-
-
-@media (prefers-reduced-motion: reduce) {
-  .ambient-bg { animation: none; }
-}
-
-@media (prefers-color-scheme: dark) {
-  .site-container {
-    background:
-      radial-gradient(circle at top, rgba(129,140,248,0.35), transparent 60%),
-      #020617;
-    color: #e5e7eb;
-  }
-  .nav-bar {
-    background: #111827;
-  }
-
-  .nav-bar a {
-    color: #e5e7eb;
-  }
-
-  .nav-bar a.is-active {
-    background: #818cf8;
-    color: #020617;
-  }
-}
